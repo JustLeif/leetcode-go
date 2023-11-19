@@ -2,6 +2,7 @@ package leetcodego
 
 import (
 	"errors"
+	"math"
 	"slices"
 )
 
@@ -37,4 +38,24 @@ func BinarySearchOnArray(arr []int, val int) (int, error) {
 	}
 
 	return 0, errors.New("Val not found in arr")
+}
+
+// Runtime of O(sqrt(n))
+// Assuming an arr of booleans, each position representing a floor of a building, figure out in an optimized way how to determine at which floor a crystal ball with break if you drop it from that floor (You have two crystal balls to drop)
+func CrystalBallSearch(arr []bool) int {
+	sqrtJump := int(math.Sqrt(float64(len(arr))))
+	var i int
+	for i = sqrtJump; i < len(arr); i += sqrtJump {
+		if arr[i] {
+			break
+		}
+	}
+	i -= sqrtJump
+	for j := 0; j <= sqrtJump && i < len(arr); i, j = i+1, j+1 {
+
+		if arr[i] {
+			return i
+		}
+	}
+	return -1
 }
