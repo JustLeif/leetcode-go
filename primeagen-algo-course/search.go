@@ -50,11 +50,10 @@ func CrystalBallSearch(arr []bool) int {
 			break
 		}
 	}
-	i -= sqrtJump
-	for j := 0; j <= sqrtJump && i < len(arr); i, j = i+1, j+1 {
-
-		if arr[i] {
-			return i
+	var j int
+	for j = i - sqrtJump; j <= i; j++ {
+		if arr[j] {
+			return j
 		}
 	}
 	return -1

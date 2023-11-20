@@ -22,3 +22,20 @@ func TestBinarySearch(t *testing.T) {
 	t.Logf("%d is the index of %d in arr", idx, find)
 	t.Log(arr)
 }
+
+func TestCrystalBall(t *testing.T) {
+	arr := []bool{false, true, true, true}
+	idx := CrystalBallSearch(arr)
+	if idx != 1 {
+		t.Fatalf("Should have gotten idx 1, instead got %d", idx)
+	}
+	t.Logf("%d is index of breaking point", idx)
+
+	arr2 := []bool{false, false, false, false, false, true}
+	idx2 := CrystalBallSearch(arr2)
+	if idx2 != 5 {
+		t.Fatalf("Should have gotten idx 5, instead got %d", idx2)
+	}
+	t.Logf("%d is index of breaking point", idx2)
+
+}
