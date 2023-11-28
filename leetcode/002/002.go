@@ -15,8 +15,6 @@ func Solution002(nums []int, target int) []int {
 		idx, ok := valMap[target-val]
 		if ok && idx != i {
 			return []int{i, idx}
-		} else {
-			continue
 		}
 	}
 
