@@ -13,7 +13,7 @@ func Solution002(nums []int, target int) []int {
 
 	for i, val := range nums {
 		idx, ok := valMap[target-val]
-		if ok {
+		if ok && idx != i {
 			return []int{i, idx}
 		} else {
 			continue
